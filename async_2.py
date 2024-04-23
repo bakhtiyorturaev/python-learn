@@ -1,41 +1,4 @@
-def time_dec(origin_func):
-    """vaqtni hisoblash uchun decarator"""
 
-    def wrapper(*args, **kwargs):
-        from time import perf_counter
-        val = origin_func(*args, **kwargs)
-        t1 = perf_counter()
-
-        print(val)
-
-        t2 = perf_counter() - t1
-        print(t2)
-
-    return wrapper
-
-
-@time_dec
-def tub_sonlarni_top(son):
-    tub_sonlar = []
-    for i in range(2, son + 1):
-        tub = True
-        for j in range(2, i):
-            if i % j == 0:
-                tub = False
-                break
-        if tub:
-            tub_sonlar.append(i)
-    return tub_sonlar
-
-
-son = int(input("son kiriting: "))
-natija = tub_sonlarni_top(son)
-print(f"{son} songacha bolgan tub sonlar: {natija}")
-
-# dastur xisoblagan vaqt
-"""7.061499854899012e-05"""
-
-# 2-masala
 import asyncio
 from time import perf_counter
 
@@ -78,6 +41,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-# dastur hisoblagan vaqt
-# 0.00053226 sekund
